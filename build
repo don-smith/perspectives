@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+shopt -s nullglob
+for f in pages/*.md; do
+  MD="${f##*/}" # remove folder
+  HTML="${MD%.md}".html
+  cat src/header.html > built/$HTML
+  node_modules/remark-cli/cli.js -u remark-html pages/$MD >> built/$HTML
+  cat src/footer.html >> built/$HTML
+done
+
+NEW_HASH="$(ipfs add built -r | cut -d' ' -f2 | tail -n1)"
+echo "NEW_HASH is $NEW_HASH"
+
+printf "$NEW_HASH" | xclip -sel clip
+echo "The NEW_HASH has been placed on your clipboard"
+
+URL="http://localhost:8080/ipfs/$NEW_HASH"
+node_modules/opn-cli/cli.js $URL

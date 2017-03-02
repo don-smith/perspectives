@@ -1,0 +1,15 @@
+{
+  "name": "perspectives",
+  "version": "0.1.0",
+  "description": "A static publishing platform for IPFS",
+  "author": "Don Smith <don@antianytonym.com>",
+  "license": "GPL",
+  "devDependencies": {
+    "jq2": "^1.0.1",
+    "opn-cli": "^3.1.0",
+    "remark": "^7.0.0",
+    "remark-cli": "^3.0.0",
+    "remark-highlight.js": "^4.0.1",
+    "remark-html": "^6.0.0"
+  }
+}
