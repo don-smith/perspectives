@@ -17,6 +17,11 @@ cd perspectives && npm install
 ./init && ./build
 ```
 
+
+## Next steps
+
+* Edit `built/index.html`, `src/header.html` and `src/footer.html` to achive your site's look and feel.
+* Add a CSS file to the `built` folder and reference it from `built/index.html`.
 * If you're using a domain name, wire it up to IPNS using [these instructions](https://ipfs.io/ipfs/QmNZiPk974vDsPmQii3YbrMKfi12KTSNM7XMiYyiea4VYZ/example#/ipfs/QmRFTtbyEp3UaT67ByYW299Suw7HKKnWK6NJMdNFzDjYdX/websites/README.md).
 
 

@@ -2,15 +2,15 @@
 
 shopt -s nullglob
 for f in pages/*.md; do
-  file="${f##*/}"
-  html="${file%.md}".html
-  cat src/header.html > built/$html
-  node_modules/remark-cli/cli.js -u remark-html pages/$root.md >> built/$html
-  cat src/footer.html >> built/$html
+  MD="${f##*/}"
+  HTML="${MD%.md}".html
+  cat src/header.html > built/$HTML
+  node_modules/remark-cli/cli.js -u remark-html $f >> built/$HTML
+  cat src/footer.html >> built/$HTML
 done
 
 NEW_HASH="$(ipfs add built -r | cut -d' ' -f2 | tail -n1)"
-echo "Publishing the new hash"
+echo "Publishing the new hash: $NEW_HASH"
 ipfs name publish $NEW_HASH
 
 PEER_ID="$(ipfs id | node_modules/jq2/index.js '$.ID')"

@@ -5,12 +5,12 @@ for f in pages/*.md; do
   MD="${f##*/}"
   HTML="${MD%.md}".html
   cat src/header.html > built/$HTML
-  node_modules/remark-cli/cli.js -u remark-html pages/$MD >> built/$HTML
+  node_modules/remark-cli/cli.js -u remark-html $f >> built/$HTML
   cat src/footer.html >> built/$HTML
 done
 
 NEW_HASH="$(ipfs add built -r | cut -d' ' -f2 | tail -n1)"
-echo "NEW_HASH is $NEW_HASH"
+echo "The new hash is: $NEW_HASH"
 
 URL="http://localhost:8080/ipfs/$NEW_HASH"
 node_modules/opn-cli/cli.js $URL
