@@ -2,5 +2,7 @@ node_modules
 *.log
 *.html
 *.md
+*.png
+*.css
 
 !README.md
