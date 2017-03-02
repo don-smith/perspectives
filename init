@@ -1,0 +1,54 @@
+#!/usr/bin/env sh
+
+mkdir -p built pages src
+
+cat > pages/test-post.md <<EOL
+# Test post
+
+> Wherein we gain a new perspective
+
+This is just a test post. Feel free to replace it.
+EOL
+
+cat > built/index.html <<EOL
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Perspectives</title>
+</head>
+<body>
+  <h1>Perspectives</h1>
+
+  <ul>
+    <li><a href="test-post.html">Test post</a></li>
+  </ul>
+
+</body>
+</html>
+EOL
+
+cat > src/header.html <<EOL
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Perspectives</title>
+</head>
+<body>
+  <a href="index.html">Back</a>
+
+EOL
+
+cat > src/footer.html <<EOL
+
+  <a href="index.html">Back</a>
+</body>
+</html>
+EOL
+
+echo "Created pages/test-post.md"
+echo "Created built/index.html"
+echo "Created src/header.html"
+echo "Created src/footer.html"
+echo "init complete"
